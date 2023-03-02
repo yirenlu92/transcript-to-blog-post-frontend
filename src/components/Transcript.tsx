@@ -12,49 +12,6 @@ const Transcript: React.FC<Props> = () => {
   const [intervieweeBackground, setIntervieweeBackground] = useState<string>('');
   const [blogPost, setBlogPost] = useState<string>('');
 
-  // useEffect(() => {
-  //   axios({
-  //     url: 'https://api.fireflies.ai/graphql',
-  //     method: 'post',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //       'Authorization': 'Bearer 873d8798-9192-48c0-a091-dc55df1910d2'
-  //     },
-  //     data: {
-  //       query: `
-  //         query {
-  //           transcript(id:"FTgDZhQeZZ") {
-  //             title
-  //             date
-  //             duration
-  //             sentences {
-  //               text
-  //               speaker_name
-  //             }
-  //           }
-  //         }
-  //       `
-  //     }
-  //   })
-  //     .then((result) => {
-  //       console.log(result.data.data.transcript.title);
-  //       // concatenate all the sentences into string along with speaker name
-  //       let buff_transcript = '';
-  //       let prev_speaker = '';
-  //       result.data.data.transcript.sentences.forEach((sentence: any) => {
-  //           if (prev_speaker && prev_speaker === sentence.speaker_name) {
-  //               buff_transcript += ' ' + sentence.text + ' ';
-  //           } else {
-  //               buff_transcript += "\n\n" + sentence.speaker_name + "\n" + sentence.text;
-  //           }
-  //           prev_speaker = sentence.speaker_name;
-  //       });
-  //       setTranscript(buff_transcript);
-  //     })
-  //     .catch((e) => {
-  //       console.error(e);
-  //     });
-  // }, []);
 
   const handleFirefliesIdSubmit = (event: React.FormEvent<HTMLFormElement>) => {
 
@@ -104,7 +61,6 @@ const Transcript: React.FC<Props> = () => {
   };
 
 
-
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
 
     event.preventDefault();
@@ -112,20 +68,21 @@ const Transcript: React.FC<Props> = () => {
     const formData = new FormData();
 
     if (transcript) {
-        formData.append('transcript', transcript);
-        formData.append('interviewee_name', intervieweeName);
-        formData.append('interviewee_background', intervieweeBackground);
-        fetch('https://transcript-to-blog-post-backend.onrender.com/handle_text_file', {
-          method: 'POST',
-          body: formData,
-          mode: 'no-cors',
-          redirect: 'follow',
-      })
-      .then(response => response.text())
-      .then((text) => setBlogPost(text))
+      formData.append('transcript', transcript);
+      formData.append('interviewee_name', intervieweeName);
+      formData.append('interviewee_background', intervieweeBackground);
     }
 
-};
+    const requestOptions: RequestInit = {
+      method: 'POST',
+      body: formData,
+      redirect: 'follow'
+    };
+
+    fetch("https://transcript-to-blog-post-backend.onrender.com/handle_text_file", requestOptions)
+      .then(response => response.text())
+      .then((text) => setBlogPost(text))
+  }
 
   return (
     <div>
