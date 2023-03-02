@@ -1,0 +1,11 @@
+textarea.background-box {
+    width: 1200px; /* or any other desired width */
+    height: 200px; /* or any other desired height */
+}
+
+label {
+    font-size: .5em;
+    font-weight: bold;
+    margin: 0 0 0 0;
+    padding: 0 0 3 3;
+}
