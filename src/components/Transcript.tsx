@@ -115,7 +115,7 @@ const Transcript: React.FC<Props> = () => {
               <div>
                 <label>Interviewee Transcript: </label>
               </div>
-            <textarea value={transcript} />
+            <textarea value={transcript} onChange={(e) => setTranscript(e.target.value)}/>
             </div>
            <button type="submit">Submit</button>
           </form>
