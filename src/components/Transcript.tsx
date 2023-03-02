@@ -118,6 +118,7 @@ const Transcript: React.FC<Props> = () => {
         fetch('https://transcript-to-blog-post-backend.onrender.com/handle_text_file', {
           body: formData,
           method: 'POST',
+          mode: 'no-cors',
       })
       .then(response => response.text())
       .then((text) => setBlogPost(text))
