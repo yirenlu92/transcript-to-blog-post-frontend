@@ -115,7 +115,7 @@ const Transcript: React.FC<Props> = () => {
         formData.append('transcript', transcript);
         formData.append('interviewee_name', intervieweeName);
         formData.append('interviewee_background', intervieweeBackground);
-        fetch('http://127.0.0.1:5000/handle_text_file', {
+        fetch('https://transcript-to-blog-post-backend.onrender.com/handle_text_file', {
           body: formData,
           method: 'POST',
       })
