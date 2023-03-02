@@ -76,6 +76,7 @@ const Transcript: React.FC<Props> = () => {
     const requestOptions: RequestInit = {
       method: 'POST',
       body: formData,
+      mode: "no-cors",
       redirect: 'follow'
     };
 
