@@ -116,9 +116,10 @@ const Transcript: React.FC<Props> = () => {
         formData.append('interviewee_name', intervieweeName);
         formData.append('interviewee_background', intervieweeBackground);
         fetch('https://transcript-to-blog-post-backend.onrender.com/handle_text_file', {
-          body: formData,
           method: 'POST',
+          body: formData,
           mode: 'no-cors',
+          redirect: 'follow',
       })
       .then(response => response.text())
       .then((text) => setBlogPost(text))
