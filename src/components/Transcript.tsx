@@ -76,16 +76,17 @@ const Transcript: React.FC<Props> = () => {
     const requestOptions: RequestInit = {
       method: 'POST',
       body: formData,
-      mode: "no-cors",
-      redirect: 'follow'
     };
 
     fetch("https://transcript-to-blog-post-backend.onrender.com/handle_text_file", requestOptions)
-      .then(response => response.text())
+      .then(response => {
+        console.log(response);
+        return response.text();
+      })
       .then((text) =>
-      {
-        console.log(text);
-        setBlogPost(text)
+      { 
+        console.log(text);       
+        setBlogPost(text);
       }
       )
   }
