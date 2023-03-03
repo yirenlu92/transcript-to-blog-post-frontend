@@ -82,7 +82,12 @@ const Transcript: React.FC<Props> = () => {
 
     fetch("https://transcript-to-blog-post-backend.onrender.com/handle_text_file", requestOptions)
       .then(response => response.text())
-      .then((text) => setBlogPost(text))
+      .then((text) =>
+      {
+        console.log(text);
+        setBlogPost(text)
+      }
+      )
   }
 
   return (
