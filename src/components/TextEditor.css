@@ -1,4 +1,5 @@
 textarea {
-    width: 1200px; /* or any other desired width */
-    height: 700px; /* or any other desired height */
+  width: 1200px;
+  height: 600px;
+  min-height: 600px;
 }
