@@ -94,8 +94,8 @@ const Editor: React.FC<Props> = () => {
       <form onSubmit={handleSubmit}>
         <div className="space-y-12">
           <div className="border-b border-gray-900/10 pb-12">
-            <article className="prose prose-sm leading-7 text-gray-900">
-              <h3>Go through the transcript and do the following:</h3>
+            <article className="prose prose-lg leading-7 text-gray-900">
+              <h1>Go through the transcript and do the following:</h1>
               <ul>
                 <li>
                   Mark the beginning and end of each question and answer with
