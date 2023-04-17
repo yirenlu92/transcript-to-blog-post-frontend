@@ -16,7 +16,7 @@ const TextEditor: React.FC<Props> = ({ text, setText, label }) => {
     <div className="w-full min-h-full">
       <label
         htmlFor="comment"
-        className="block text-lg font-large leading-6 text-gray-900"
+        className="block text-md font-medium leading-6 text-gray-900 pb-3"
       >
         {label}
       </label>
