@@ -13,6 +13,9 @@ module.exports = {
       height: {
         128: "32rem",
       },
+      minWidth: {
+        half: "50%",
+      },
     },
   },
   plugins: [require("@tailwindcss/forms"), require("@tailwindcss/typography")],

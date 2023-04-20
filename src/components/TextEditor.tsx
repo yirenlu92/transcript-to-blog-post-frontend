@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import "./TextEditor.css";
 
 interface Props {
@@ -14,9 +14,18 @@ const TextEditor: React.FC<Props> = ({
   label,
   defaultValue,
 }) => {
-  const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setText(event.target.value);
+  const [localText, setLocalText] = useState(text);
+
+  const handleBlurForEditor = () => {
+    setText(localText);
   };
+
+  const handleChangeForTextEditor = useMemo(
+    () => (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+      setLocalText(event.target.value);
+    },
+    [setText]
+  );
 
   return (
     <div className="w-full h-full">
@@ -30,10 +39,10 @@ const TextEditor: React.FC<Props> = ({
         <textarea
           name="comment"
           id="comment"
-          value={text}
-          onChange={handleChange}
+          value={localText}
+          onChange={handleChangeForTextEditor}
+          onBlur={handleBlurForEditor}
           className="h-full block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 text-lg"
-          defaultValue={defaultValue}
         />
       </div>
     </div>

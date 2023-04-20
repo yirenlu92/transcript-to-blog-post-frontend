@@ -141,7 +141,6 @@ const Editor: React.FC<Props> = () => {
               text={editablePrompt}
               setText={setEditablePrompt}
               label="Prompt"
-              defaultValue={examplePrompt}
             />
           </div>
           <div className="flex pt-8 pb-20">
@@ -170,16 +169,18 @@ const Editor: React.FC<Props> = () => {
                   </div>
                 )}
               </div>
-              <div className="flex justify-end">
+              <div className="flex items-center">
                 {!isLoading && error && (
-                  <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded my-4">
-                    <p>Oops! Something went wrong: {error.message}</p>
+                  <div className="">
+                    <div className="text-sm bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded my-4">
+                      <p>Oops! Something went wrong: {error.message}</p>
+                    </div>
                   </div>
                 )}
               </div>
             </div>
             {blogPost && (
-              <div className="grow ml-2">
+              <div className="grow min-w-half ml-2">
                 <div className="h-128 w-full">
                   <TextEditor
                     text={editableBlogPost}
