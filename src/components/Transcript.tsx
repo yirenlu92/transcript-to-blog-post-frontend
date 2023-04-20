@@ -6,53 +6,32 @@ import { useNavigate } from "react-router-dom";
 
 interface Props {}
 
-// store popular prompts
-// const prompts = [
-//   "
-//         Please translate the following interview transcript into complete, grammatical, idiomatic American English sentences in the style of a professional translator. Do not omit details or change the meaning of the original text.
-//     ",
-
-//     """
-//     Please turn the following interview transcript into a 600-word customer success story that begins: "We spoke with(name and title at company) about their vision for how Azure OpenAI Service will transform XXX. This is that conversation as summarized by Azure OpenAI Service."
-
-//     Stories should look and feel like they could live on the new Azure AI hub and support the messaging and value statements contained within.
-
-//     The interview transcript is interviewing an educational provider in Taiwan that used Azure OpenAI Service for chatbot and speech assessment capabilities.
-
-//     The interview transcript is in Chinese and is too long, so we will split it up and give it to you in chunks. Please output the corresponding section of the blog post for each input transcript portion we give you. The section should be given a subheading that corresponds to the question that Yiren Lu asked.
-//     """
-
-//     """
-//     I would like you to take an interview transcript where Yiren Lu is interviewing {} on her experience transitioning from software engineering to product management, and rewrite it in complete, grammatical, idiomatic American English sentences in the style of a blog post.
-
-//     Some addition context about {}'s professional background:
-
-//     {}
-
-//     # The blog post should be written in the first person, from {}'s perspective, and retain as much of the original sentences and details from the transcript as possible. It should not say things like "Yiren Lu asked me...". You might have re-organize the text so that the chronology makes sense.
-
-//     # Since the transcript is too long to fix in your context window, we will split it up and give it to you in chunks. Please output the corresponding section of the blog post for each input transcript portion we give you. The section should be given a subheading that corresponds to the question that Yiren Lu asked.
-//     #"
-// ]
-
-const markingExample = `#QBEGIN
+const markingExample = `
+EXAMPLE TRANSCRIPT (PLEASE DELETE)
 
 #PBEGIN
-- Dan and Chan started playing around with transformers
-- Tool they built was amazing for deliberations
-- Decided to land on legal, specifically litigation
+- all organizations require working together with many different people
 #PEND
 
-Yiren Lu  00:50
-Okay. Cool. And your Chan, right. Okay. Yeah. Tell me about how you guys came to this idea.
+Interviewer  00:02
+Perfect. So the first question, why are management skills important to business success?
 
-Chan  00:58
-Yeah. So initially, how the idea was born was the where so back in 2019 there was a new model that came out called Trans. 
+Diane 00:09
+That is the million dollar question. Yeah, so management skills are important to business success, because unless you are a business of one person, your business success is dependent on groups of people working together to create, you know, to create a shared outcome. 
 
-#QEND
+##
 
-------
+#PBEGIN
+- many different kinds of tipping change skills
+#PEND
 
+Interviewer 01:05
+Awesome. And then we talked a bit about this last time, the tipping point skill, what are they? How should you think about them? And leveraging? Yeah,
+
+Diane  01:15
+so a tipping point scale is basically it's a small change that makes a big impact. So the idea is that there are hundreds and hundreds of different kinds of skills and skill sets that you can have in the workplace.
+
+-------
 
 `;
 

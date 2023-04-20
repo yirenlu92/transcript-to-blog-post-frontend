@@ -1,5 +1,4 @@
 textarea {
   width: 1200px;
-  height: 600px;
-  min-height: 600px;
+  resize: none;
 }

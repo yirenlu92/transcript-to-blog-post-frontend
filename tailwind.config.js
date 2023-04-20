@@ -9,7 +9,11 @@ module.exports = {
       lg: "1.875rem",
       xl: "2.25rem",
     },
-    extend: {},
+    extend: {
+      height: {
+        128: "32rem",
+      },
+    },
   },
   plugins: [require("@tailwindcss/forms"), require("@tailwindcss/typography")],
 };
